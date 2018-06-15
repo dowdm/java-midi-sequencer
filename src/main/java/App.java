@@ -42,7 +42,7 @@ public class App {
                 model.put("devices", null);
             } else{
                 model.put("devices",allDevices);
-                model.put("chosen", chosenDevice.getDeviceInfo());
+                model.put("chosen", chosenDevice);
             }
             return new ModelAndView(model, "interface.hbs");
         },new HandlebarsTemplateEngine());
@@ -53,6 +53,11 @@ public class App {
             chosenDevice =  getMidiDevice(allDevices[Integer.parseInt(request.queryParams("output"))]);
             response.redirect("/");
             return null;
+        },new HandlebarsTemplateEngine());
+
+        get("/steps/edit", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            return new ModelAndView(model, "steps.hbs");
         },new HandlebarsTemplateEngine());
     }
 }

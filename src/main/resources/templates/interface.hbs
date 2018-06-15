@@ -11,16 +11,13 @@
         </select>
     <button type="submit" class="btn btn-danger">Select Device</button>
 </form>
-<h2>Your current output: {{chosen}}</h2>
+<h2>Your current output: {{chosen.info}}</h2>
 {{else}}
-    <p>There ore no connected devices</p>
+    <p>There are no connected devices</p>
 {{/if}}
 
-{{#block "steps"}}
-{{/block}}
 
-
-
+<button class="bottom"><a href="/steps/edit">Edit Step Length</a></button>
 
 
 {{/partial}}

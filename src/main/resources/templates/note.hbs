@@ -1,8 +1,18 @@
-{{#partial "note"}}
+{{#partial "content"}}
 
-<h1 class="center" id="underline">Team List</h1>
+<form action="/sequence" method="post">
+
+<label for="note1chan">Note 1 Channel (1-16)</label>
+<input id="note1chan" name="newCategoryName" type="range" max="16" min="6" step="1" value="{{category.name}}">
+<label for="note1pitch">Note 1 Pitch(0-127)</label>
+<input id="note1pitch" name="newCategoryName" type="range" max="127" min="0" step="1" value="{{category.name}}">
+<label for="note1vel">Note 1 Velocity(0-127)</label>
+<input id="note1vel" name="newCategoryName" type="range" max="127" min="0" step="1" value="{{category.name}}">
+<label for="note1gate">Note 1 Gate(ms)</label>
+<input id="note1gate" name="newCategoryName" type="range" max="127" min="0" step="1" value="{{category.name}}">
 
 
+</form>
 {{/partial}}
 
 {{> layout.hbs}}
