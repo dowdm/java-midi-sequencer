@@ -13,6 +13,7 @@
 5. Update the track object with track.add(MidiEvent). The MidiEvent objects will be a composite "note on" event from the note sliders(note, velocity, channel ). A corresponding "note-off" event will be generated "x" ms later as determined by the value gate slider.
 6. Calculating the original Midi-Event timestamps???- I need to figure this out. The math probably isn't very difficult, if using a lower resolution PPQ value.
 &. UI needs responsive feedback for variable values. I'm not sure if this is possible within spark alone. May require jquery, but trying to avoid js to keep MIDI timing as reliable as possible.  
+7. the groups of 4 note sliders to do be updated based on the step variable from the bpm/step panel.
   
 
   
