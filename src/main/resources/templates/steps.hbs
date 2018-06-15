@@ -2,7 +2,10 @@
 <form action="/steps" method="post">
     <label for="steps">Select your sequence length in steps:</label>
     <input name="steps" id="steps" type="range" min="1" max="16" step="1">
-    <button type="submit" class="btn btn-danger">Select Length</button>
+
+    <label for="bpm">Select the BPM of your sequence:</label>
+    <input name="bpm" id="bpm" type="range" min="40" max="240" step="1" value="{{bpm}}">
+    <button type="submit" class="btn btn-danger">Edit Sequence Properties</button>
 </form>
 {{/partial}}
 
