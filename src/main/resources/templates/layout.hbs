@@ -8,13 +8,15 @@
 </head>
 
 <body>
-
+<h1>Your selected output device: {{chosen}}</h1>
+<button class="bottom"><a href="/steps/edit">Edit Step Length</a></button>
+<button class="bottom"><a href="/interface/edit">Edit Output Device</a></button>
       {{#block "interface"}}
       {{/block}}
 
 
-        {{#block "steps"}}
-        {{/block}}
+      <!--{{#block "steps"}}-->
+      <!--{{/block}}-->
 
     <!--<div class="container">-->
 
@@ -24,6 +26,7 @@
 
 
 {{#block "footer"}}
+
 </body>
 </html>
 {{/block}}

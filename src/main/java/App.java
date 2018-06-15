@@ -36,7 +36,7 @@ public class App {
             return new ModelAndView(model, "interface.hbs");
         },new HandlebarsTemplateEngine());
 
-        get("/interface", (request, response) -> {
+        get("/interface/edit", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             if (installedDevices == 0){
                 model.put("devices", null);
@@ -57,6 +57,7 @@ public class App {
 
         get("/steps/edit", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
+            model.put("chosen", chosenDevice);
             return new ModelAndView(model, "steps.hbs");
         },new HandlebarsTemplateEngine());
     }
