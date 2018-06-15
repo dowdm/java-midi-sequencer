@@ -1,8 +1,21 @@
-# **MIDI-Sequencer**
+# **MIDI-Sequencer**(not functioning)
 
 #### By Matt Dowdney
 
-### This is a MIDI sequencer for sequencing external MIDI equipment from a browser. It will rely on Java's own MIDI and sound libraries and create only new classes when necessary.  
+### This is a MIDI sequencer for sequencing external MIDI equipment (synthesizers)from a browser. It will rely on Java's own MIDI libraries. 
+
+## TO DO: get app working. after much research, it seems that the following should work:
+####
+1. Create a MidiSystem Sequencer for Track playback and tempo reception with Midisystem.getSequencer();
+2. Set the sequencer to loop infinitely with  myseq.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
+3. Have the handlebars tempo variable update the Sequencer tempo with setTempoInBPM(int) method.
+4. Create a Track object Sequence.createTrack(); 
+5. Update the track object with track.add(MidiEvent). The MidiEvent objects will be a composite "note on" event from the note sliders(note, velocity, channel ). A corresponding "note-off" event will be generated "x" ms later as determined by the value gate slider.
+6. Calculating the original Midi-Event timestamps???- I need to figure this out. The math probably isn't very difficult, if using a lower resolution PPQ value.
+&. UI needs responsive feedback for variable values. I'm not sure if this is possible within spark alone. May require jquery, but trying to avoid js to keep MIDI timing as reliable as possible.  
+  
+
+  
 
 ## Specifications
 
