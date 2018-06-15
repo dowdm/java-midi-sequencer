@@ -30,6 +30,9 @@ public class App {
                 model.put("devices",allDevices);
                 model.put("chosen", chosenDevice);
             }
+            if (chosenDevice != null){
+                chosenDevice.open();
+            }
             return new ModelAndView(model, "interface.hbs");
         },new HandlebarsTemplateEngine());
 
@@ -39,7 +42,7 @@ public class App {
                 model.put("devices", null);
             } else{
                 model.put("devices",allDevices);
-                model.put("chosen", chosenDevice);
+                model.put("chosen", chosenDevice.getDeviceInfo());
             }
             return new ModelAndView(model, "interface.hbs");
         },new HandlebarsTemplateEngine());
