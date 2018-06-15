@@ -1,9 +1,19 @@
 {{#partial "interface"}}
 
 <h1>Interface List</h1>
-    {{#each devices}}
-        <p>{{this}}</p>
-    {{/each}}
+{{#if devices}}
+<form action="/interface/new" method="post">
+        <label for="output">Select your output device:</label>
+        <select id="output" name="output">
+            {{#each devices}}
+            <option value="{{this}}">{{this}}</option>
+            {{/each}}
+        </select>
+    <button type="submit" class="btn btn-danger">Select Device</button>
+</form>
+{{else}}
+    <p>There ore no connected devices</p>
+{{/if}}
 
 
 
