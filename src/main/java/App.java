@@ -16,7 +16,7 @@ import static spark.Spark.*;
 public class App {
     public static MidiDevice.Info[] allDevices = getMidiDeviceInfo();
     public static int installedDevices = allDevices.length;
-//    public static MidiDevice chosenDevice = getMidiDevice(MidiDevice.Info info);
+    public static MidiDevice chosenDevice =;
     public static void main(String[] args) {
         staticFileLocation("/public");
 
@@ -31,6 +31,13 @@ public class App {
             }
             return new ModelAndView(model, "interface.hbs");
         },new HandlebarsTemplateEngine());
+
+        post("/interface", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            chosenDevice =  getMidiDevice(allDevices[Integer.parseInt(request.queryParams("@index"))]);
+            return new ModelAndView(model, "interface.hbs");
+        },new HandlebarsTemplateEngine());
+
 
     }
 }
