@@ -8,6 +8,7 @@
 
 |Specification  | Input | Output |
 | ----- | --- | --- |
+| Select your MIDI output | Steinberg UR22 | output set to Steinberg UR22 |
 | Enter an octave | 2 |  |
 | Enter a note | G | G-2 |
 | Enter velocity | 127|  |
