@@ -2,7 +2,7 @@
 
 <h1>Interface List</h1>
 {{#if devices}}
-<form action="/interface/new" method="post">
+<form action="/interface" method="post">
         <label for="output">Select your output device:</label>
         <select id="output" name="output">
             {{#each devices}}
@@ -11,9 +11,12 @@
         </select>
     <button type="submit" class="btn btn-danger">Select Device</button>
 </form>
+<h2>Your current output: {{chosen}}</h2>
 {{else}}
     <p>There ore no connected devices</p>
 {{/if}}
+
+
 
 
 
