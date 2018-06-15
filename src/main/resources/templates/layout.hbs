@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{#block "title"}}{{/block}}</title>
+    <title>{{#block "title"}}MIDI Sequencer{{/block}}</title>
 
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
     <link rel='stylesheet' href='/app.css'>
 </head>
-<body>
-{{#block "interface"}}
-{{/block}}
-{#block "stepsNumber"}}
-{{/block}}
-<div class="container">
 
-    {{#block "notes"}}
-    {{/block}}
-</div>
-</div>
+<body>
+
+        <h1>Select your MIDI output</h1>
+        {{#block "interface"}}
+        {{/block}}
+
+    <!--<div>-->
+        <!--<h1>Select the number of steps</h1>-->
+        <!--{{#block "steps"}}-->
+        <!--{{/block}}-->
+    <!--</div>-->
+    <!--<div class="container">-->
+
+        <!--{{#block "notes"}}-->
+        <!--{{/block}}-->
+    <!--</div>-->
+
 
 {{#block "footer"}}
 </body>
