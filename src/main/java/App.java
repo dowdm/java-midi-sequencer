@@ -17,6 +17,7 @@ public class App {
     public static MidiDevice.Info[] allDevices = getMidiDeviceInfo();
     public static int installedDevices = allDevices.length;
     public static MidiDevice chosenDevice;
+    public static int sequenceLength;
     public static void main(String[] args) {
         staticFileLocation("/public");
 
@@ -24,15 +25,14 @@ public class App {
 
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            if (installedDevices == 0){
-                model.put("devices", null);
-            } else{
-                model.put("devices",allDevices);
+//            if (installedDevices == 0){
+//                model.put("devices", null);
+//            } else{
+//                model.put("devices",allDevices);
                 model.put("chosen", chosenDevice);
-            }
-            if (chosenDevice != null){
-                chosenDevice.open();
-            }
+                model.put("length", sequenceLength);
+//            }
+
             return new ModelAndView(model, "interface.hbs");
         },new HandlebarsTemplateEngine());
 
@@ -43,6 +43,9 @@ public class App {
             } else{
                 model.put("devices",allDevices);
                 model.put("chosen", chosenDevice);
+            }
+            if (chosenDevice != null){
+                chosenDevice.open();
             }
             return new ModelAndView(model, "interface.hbs");
         },new HandlebarsTemplateEngine());
@@ -59,6 +62,13 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             model.put("chosen", chosenDevice);
             return new ModelAndView(model, "steps.hbs");
+        },new HandlebarsTemplateEngine());
+
+        post("/steps", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+           sequenceLength = Integer.parseInt(request.queryParams("steps"));
+            response.redirect("/");
+            return null;
         },new HandlebarsTemplateEngine());
     }
 }
