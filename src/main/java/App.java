@@ -5,12 +5,15 @@ import spark.template.handlebars.HandlebarsTemplateEngine;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.awt.SystemColor.info;
+import static javax.sound.midi.MidiSystem.getMidiDevice;
 import static javax.sound.midi.MidiSystem.getMidiDeviceInfo;
 import static spark.Spark.*;
 
 
 public class App {
     public static MidiDevice.Info[] allDevices = getMidiDeviceInfo();
+    public static MidiDevice chosenDevice = getMidiDevice(MidiDevice.Info info);
     public static void main(String[] args) {
         staticFileLocation("/public");
 
