@@ -2,6 +2,8 @@ import javax.sound.midi.MidiDevice;
 import javax.sound.midi.MidiSystem;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
+
+import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,7 +15,8 @@ import static spark.Spark.*;
 
 public class App {
     public static MidiDevice.Info[] allDevices = getMidiDeviceInfo();
-    public static MidiDevice chosenDevice = getMidiDevice(MidiDevice.Info info);
+    public static int installedDevices = allDevices.length;
+//    public static MidiDevice chosenDevice = getMidiDevice(MidiDevice.Info info);
     public static void main(String[] args) {
         staticFileLocation("/public");
 
@@ -21,7 +24,11 @@ public class App {
 
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            model.put("devices", allDevices);
+            if (installedDevices == 0){
+                model.put("devices", null);
+            } else{
+                model.put("devices",allDevices);
+            }
             return new ModelAndView(model, "interface.hbs");
         },new HandlebarsTemplateEngine());
 
